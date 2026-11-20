@@ -13,8 +13,8 @@ st.set_page_config(page_title='CE Plate Planner', page_icon='🧬', layout='wide
 plate_view = components.declare_component('ce_plate', path=str(Path(__file__).parent / 'plate'))
 st.title('CE Plate Planner')
 st.caption('Upload a 3500 text layout, arrange your plate, and export the CSV.')
-output_assay_choice = st.selectbox('Output assay', ['Use assay from text file', 'Investigator 24Plex', 'GlobalFiler', 'IdentiFiler Plus'], help='Choose the kit settings for the CSV. Sample names and well positions stay as arranged.')
-output_assay = None if output_assay_choice == 'Use assay from text file' else output_assay_choice
+output_assay_choice = st.selectbox('Output assay', ['Investigator 24Plex', 'GlobalFiler', 'IdentiFiler Plus'], help='Choose the kit settings for the CSV. Sample names and well positions stay as arranged.')
+output_assay = output_assay_choice
 upload = st.file_uploader('Plate layout text file', type=['txt'])
 if upload is None:
     st.info('Upload a text file to populate the 96-well plate.')
